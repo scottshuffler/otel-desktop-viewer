@@ -56430,7 +56430,6 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       }
       let nameLabel = spanData.name.replaceAll("/", "/\u200B").replaceAll("-", "-\u200B").replaceAll(".", ".\u200B");
       let resourceLabel = spanData.resource.attributes["service.name"];
-      console.log(span);
       let icon = /* @__PURE__ */ import_react184.default.createElement(ChevronDownIcon, null);
       if (span.metadata.toggled) {
         icon = /* @__PURE__ */ import_react184.default.createElement(ChevronRightIcon, null);
@@ -56445,7 +56444,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         alignItems: "center",
         flexGrow: "1",
         flexShrink: "0"
-      }, span.metadata.leaf ? /* @__PURE__ */ import_react184.default.createElement(import_react184.default.Fragment, null) : /* @__PURE__ */ import_react184.default.createElement(IconButton, {
+      }, /* @__PURE__ */ import_react184.default.createElement(IconButton, {
         size: "md",
         "aria-label": "Collapse Sidebar",
         variant: "ghost",
@@ -56719,7 +56718,6 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       return orderSpans(spanTree);
     });
     function toggle(id3) {
-      console.log("toggled " + id3);
       let ids = [id3];
       let hidden = false;
       setOrderedSpans(orderedSpans.map((x) => {
@@ -56804,8 +56802,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
               depth,
               spanID: treeItem.spanData.spanID,
               hidden: false,
-              toggled: false,
-              leaf: treeItem.children.length === 0 ? true : false
+              toggled: false
             }
           });
         } else {
@@ -56815,8 +56812,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
               depth,
               spanID: treeItem.spanID,
               hidden: false,
-              toggled: false,
-              leaf: treeItem.children.length === 0 ? true : false
+              toggled: false
             }
           });
         }
