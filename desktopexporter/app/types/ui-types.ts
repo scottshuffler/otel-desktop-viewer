@@ -8,6 +8,8 @@ export enum SpanDataStatus {
 export type SpanUIData = {
   depth: number;
   spanID: string;
+  hidden: boolean;
+  toggled: boolean; // controls when an element is still displayed but children are hidden
 };
 
 export type SpanWithUIData =
@@ -36,9 +38,9 @@ export type TraceSummaryWithUIData =
       traceID: string;
     };
 
-    export type SidebarData = {
-      numNewTraces: number;
-      summaries: TraceSummaryWithUIData[];
-    };
+export type SidebarData = {
+  numNewTraces: number;
+  summaries: TraceSummaryWithUIData[];
+};
 
-    export type ModifierKey = "Alt" | "Control" | "Meta" | "Shift";
+export type ModifierKey = "Alt" | "Control" | "Meta" | "Shift";
