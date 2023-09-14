@@ -56801,8 +56801,8 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
             metadata: {
               depth,
               spanID: treeItem.spanData.spanID,
-              hidden: false,
-              toggled: false
+              hidden: depth <= 1 ? false : true,
+              toggled: depth === 1 ? true : false
             }
           });
         } else {

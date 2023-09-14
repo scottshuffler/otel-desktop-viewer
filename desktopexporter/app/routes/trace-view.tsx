@@ -138,6 +138,8 @@ function orderSpans(spanTree: RootTreeItem[]): SpanWithUIData[] {
       }
       let { treeItem, depth } = node;
 
+      
+
       if (treeItem.status === SpanDataStatus.present) {
           orderedSpans.push({
             status: SpanDataStatus.present,
@@ -145,8 +147,8 @@ function orderSpans(spanTree: RootTreeItem[]): SpanWithUIData[] {
             metadata: { 
               depth: depth, 
               spanID: treeItem.spanData.spanID, 
-              hidden: false, 
-              toggled: false,
+              hidden: depth <= 1 ? false : true, 
+              toggled: depth === 1 ? true : false,
             },
           });
       } else {
